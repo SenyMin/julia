@@ -37,7 +37,7 @@ Base.rsearch
 Base.searchindex
 Base.rsearchindex
 Base.contains(::AbstractString, ::AbstractString)
-Base.reverse(::AbstractString)
+Base.reverse(::String)
 Base.replace
 Base.split
 Base.rsplit

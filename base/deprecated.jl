@@ -1855,6 +1855,12 @@ end
     nothing
 end
 
+# Issue #22611
+@deprecate_moved RevString "LegacyStrings"
+
+# PR 23612
+@deprecate reverse(s::AbstractString) reverse(String(s))
+
 # END 0.7 deprecations
 
 # BEGIN 1.0 deprecations

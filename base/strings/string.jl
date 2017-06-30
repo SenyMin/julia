@@ -402,6 +402,29 @@ function string(a::Union{String,Char}...)
     return out
 end
 
+"""
+    reverse(s::String) -> String
+
+Reverse a string.
+
+Technically, this function reverses the codepoints in a string, and its
+main utility is for reversed-order string processing, especially for reversed
+regular-expression searches.  See also [`reverseind`](@ref) to convert indices
+in `s` to indices in `reverse(s)` and vice-versa, and [`graphemes`](@ref)
+to operate on user-visible "characters" (graphemes) rather than codepoints.
+
+# Examples
+```jldoctest
+julia> reverse("JuliaLang")
+"gnaLailuJ"
+
+julia> reverse("ax̂e") # combining characters can lead to surprising results
+"êxa"
+
+julia> join(reverse(collect(graphemes("ax̂e")))) # reverses graphemes
+"ex̂a"
+```
+"""
 function reverse(s::String)
     dat = Vector{UInt8}(s)
     n = length(dat)
